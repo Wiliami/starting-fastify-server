@@ -31,7 +31,7 @@ class App {
         });
     }
 
-    listen(port) {
+    async listen(port) {
         return this.app.listen({ port }).then(() => {
             return `HTTP server running on port ${port}.`;
         }).catch(err => {
