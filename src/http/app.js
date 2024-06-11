@@ -1,32 +1,43 @@
-import fastify from "fastify";
+import Fastify from "fastify";
 import { fastifyView} from "@fastify/view";
-import { createRequire } from 'module';
+import ejs from 'ejs';
+import routes from '../routes/main.js';
 
-require = createRequire(import.meta.url);
 
 class App {
 
     constructor() {
-        this.app = fastify();
-        ths.config();
+        this.app = Fastify({ logger: true });
+        this.config();
         this.routes();
     }
 
     config() {
         this.app.register(fastifyView, {
             engine: {
-                ejs: require("ejs")
+                ejs: ejs
             }
         });
     }
 
     routes() {
         this.app.get('/', routes);
-        this.app.get('*' (req, reply) )
+        this.app.setNotFoundHandler((req, reply) => {
+            reply
+            .code(404)
+            .type('text/html')
+            .send('<h1>Página não encontrada</h1>')
+
+        });
     }
 
     listen(port) {
-        this.app.listen(port, () => console.log('HTTP server running on port 3333.'))
+        return this.app.listen({ port }).then(() => {
+            return `HTTP server running on port ${port}.`;
+        }).catch(err => {
+            console.log('Error starting server:', err);
+            throw err;
+        });
     }
 }
 
