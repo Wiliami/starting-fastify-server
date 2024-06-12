@@ -1,8 +1,15 @@
 import Fastify from "fastify";
-import { fastifyView} from "@fastify/view";
+import path from 'path';
+import { fileURLToPath } from 'url';
+import { dirname } from 'path';
+import view from '@fastify/view';
 import ejs from 'ejs';
-import routes from '../routes/main.js';
+import mainRoutes from "../routes/main.js";
 
+
+// Necessário para obter o diretório atual com ES Modules
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 class App {
 
@@ -13,15 +20,17 @@ class App {
     }
 
     config() {
-        this.app.register(fastifyView, {
+        this.app.register(view, {
             engine: {
-                ejs: ejs
-            }
+                ejs: ejs,
+            },
+            root: path.join(__dirname, 'views'),
+            viewExt: 'ejs',
         });
     }
 
     routes() {
-        this.app.get('/', routes);
+        this.app.register(mainRoutes);
         this.app.setNotFoundHandler((req, reply) => {
             reply
             .code(404)
