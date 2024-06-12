@@ -4,10 +4,10 @@ const startServer = async () => {
     const app = new App();
 
     try {
-        const message = await app.listen(3333);
+        const message = await app.listen(3334);
         console.log(message);
-    } catch (error) {
-        console.log('Failed to start server:', err);
+    } catch (err) {
+        console.error('Failed to start server:', err);
     }
 }
 

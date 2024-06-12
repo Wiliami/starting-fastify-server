@@ -41,8 +41,9 @@ class App {
     }
 
     async listen(port) {
+        
         return this.app.listen({ port }).then(() => {
-            return `HTTP server running on port ${port}.`;
+            console.log(`HTTP server running on port ${port}.`);
         }).catch(err => {
             console.log('Error starting server:', err);
             throw err;
