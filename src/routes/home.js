@@ -1,10 +1,7 @@
-import Fastify from "fastify";
+async function homeRoutes(fastify, options) {
+    fastify.get('/', (req, reply) => {
+        reply.view('index', { title: 'Home page'});
+    });
+};
 
-const app = Fastify();
-
-app.get('/', (req, reply) => {
-    reply.view("index.ejs")
-});
-
-
-export default app;
+export default homeRoutes;

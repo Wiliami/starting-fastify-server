@@ -1,9 +1,7 @@
-import Fastify from "fastify";
-import home from './home.js';
+import homeRoutes from './home.js';
 
-const routes = Fastify();
+async function mainRoutes(fastify, options) {
+    fastify.register(homeRoutes);
+}
 
-routes.get('/', (req, reply) => reply.view(home) );
-
-
-export default routes;
+export default mainRoutes;
