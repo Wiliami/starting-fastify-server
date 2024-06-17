@@ -24,7 +24,7 @@ class App {
             engine: {
                 ejs: ejs,
             },
-            root: path.join(__dirname, 'views'),
+            root: path.join(__dirname, '../views'),
             viewExt: 'ejs',
         });
     }
@@ -35,7 +35,7 @@ class App {
             reply
             .code(404)
             .type('text/html')
-            .send('<h1>Página não encontrada</h1>')
+            .send('<p>Página não encontrada</p>')
 
         });
     }
