@@ -1,6 +1,8 @@
 async function homeRoutes(fastify, options) {
-    fastify.get('/', (req, reply) => {
-        reply.view('index', { title: 'Home page'});
+    fastify.get('/home', (req, reply) => {
+        const users = ['Wiliamis', 'Teste', 'Kipper dev', 'Dev Mario Soutinho'];
+
+        reply.view('index', users);
     });
 };
 
