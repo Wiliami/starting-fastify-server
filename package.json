@@ -8,7 +8,7 @@
   },
   "name": "microframework",
   "version": "1.0.0",
-  "main": "server.js",
+  "main": "src/http/server.js",
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
