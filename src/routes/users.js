@@ -5,9 +5,9 @@ async function homeRoutes(fastify, options) {
             { id: 3, name: 'Dev Mario Soutinho' },
             { id: 4, name: 'Lucas Montano' }
         ];
-
-        const tags = ['js', 'javascript'];
           
+        const tags = ['js', 'javascript'];
+        
         reply.view('users', { users });
     });
 };
