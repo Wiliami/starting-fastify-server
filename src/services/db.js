@@ -6,4 +6,4 @@ const users = [
     { id: 4, name: 'Lucas Montano' }
 ];
 
-export {tags, users };
+export { tags, users };
