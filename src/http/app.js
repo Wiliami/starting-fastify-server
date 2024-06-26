@@ -4,7 +4,7 @@ import { fileURLToPath } from 'url';
 import { dirname } from 'path';
 import view from '@fastify/view';
 import ejs from 'ejs';
-import mainRoutes from "../routes/main.js";
+import Routes from "../routes/index.js";
 import fastifyCors from "@fastify/cors";
 
 // Necessário para obter o diretório atual com ES Modules
@@ -34,7 +34,7 @@ class App {
     }
 
     routes() {
-        this.app.register(mainRoutes);
+        this.app.register(Routes);
         this.app.setNotFoundHandler((req, reply) => {
             reply
             .code(404)
