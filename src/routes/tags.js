@@ -1,4 +1,4 @@
-import { tags } from '../services/db.js';
+import { tags } from '../db.js';
 
 async function Tags(fastify, options) {
     fastify.get('/tags', (req, reply) => {
