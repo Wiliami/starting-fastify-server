@@ -1,4 +1,4 @@
-import { users } from '../services/db.js'
+import { users } from '../db.js'
 
 async function homeRoutes(fastify, options) {
     fastify.get('/users', (req, reply) => {        
