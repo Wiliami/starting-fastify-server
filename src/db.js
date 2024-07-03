@@ -6,4 +6,10 @@ const users = [
     { id: 4, name: 'Lucas Montano' }
 ];
 
-export { tags, users };
+const products = [
+    { id: 1, name: 'Livro', price: 20 },
+    { id: 2, name: 'Borracha', price: 5 },
+    { id: 3, name: 'Caneta', price: 2 },
+];
+
+export { tags, users, products };
