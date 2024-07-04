@@ -1,6 +1,6 @@
 import { App } from "./app.js";
 
-const startServer = async () => {
+const start = async () => {
     const app = new App();
 
     try {
@@ -11,4 +11,4 @@ const startServer = async () => {
     }
 }
 
-startServer();
+start();
