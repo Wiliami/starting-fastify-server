@@ -6,6 +6,7 @@ import view from '@fastify/view';
 import ejs from 'ejs';
 import Routes from "../routes/index.js";
 import fastifyCors from "@fastify/cors";
+import fastifyStatic from "@fastify/static";
 
 // Necessário para obter o diretório atual com ES Modules
 const __filename = fileURLToPath(import.meta.url);
@@ -22,7 +23,7 @@ class App {
     config() {
         this.app.register(fastifyCors, {
             origin: 'http://localhost:5173/',
-        })
+        });
         
         this.app.register(view, {
             engine: {
@@ -30,6 +31,11 @@ class App {
             },
             root: path.join(__dirname, '../views'),
             viewExt: 'ejs',
+        });
+
+        this.app.register((fastifyStatic), {
+            root: path.join(__dirname, '../../public'),
+            prefix: '/public/'
         });
     }
 
