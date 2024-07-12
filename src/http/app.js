@@ -4,9 +4,9 @@ import { fileURLToPath } from 'url';
 import { dirname } from 'path';
 import view from '@fastify/view';
 import ejs from 'ejs';
-import Routes from "../routes/index.js";
 import fastifyCors from "@fastify/cors";
 import fastifyStatic from "@fastify/static";
+import Routes from "../routes/index.js";
 
 // Necessário para obter o diretório atual com ES Modules
 const __filename = fileURLToPath(import.meta.url);
@@ -29,6 +29,7 @@ class App {
             engine: {
                 ejs: ejs,
             },
+            layout: 'layout/main',
             root: path.join(__dirname, '../views'),
             viewExt: 'ejs',
         });
