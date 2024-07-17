@@ -1,0 +1,44 @@
+<div class="container mt-5">
+    <h3>Criar conta</h3>
+
+    <%- include('./partials/error-success') %>
+
+    <form>
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Email</label>
+            <input type="email" class="form-control" id="email" aria-describedby="emailHelp">
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Senha</label>
+            <input type="password" class="form-control" id="senha">
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Confirmar senha</label>
+            <input type="password" class="form-control" id="confirm">
+        </div>
+        <button type="submit" id="submit" class="btn btn-primary">Criar</button>
+    </form>
+</div>
+
+
+<script>
+
+    const buttonSubmit = document.getElementById('submit');
+    const messageSuccess = document.getElementById('message'); 
+    
+    function setError() {
+        messageSuccess.style.display = 'block';         
+        console.log(messageSuccess);
+    }
+    
+    setError();
+
+    
+
+    buttonSubmit.addEventListener('click', (e) => {
+        e.preventDefault(); 
+
+    });
+    
+
+</script>
