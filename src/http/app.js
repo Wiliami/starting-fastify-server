@@ -31,7 +31,6 @@ class App {
             },
             layout: 'layout/main',
             root: path.join(__dirname, '../views'),
-            viewExt: 'ejs',
         });
 
         this.app.register((fastifyStatic), {
