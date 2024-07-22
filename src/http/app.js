@@ -22,7 +22,7 @@ class App {
 
     config() {
         this.app.register(fastifyCors, {
-            origin: 'http://localhost:5173/',
+            origin: 'http://localhost:5173/', // url: frontend autorizado para acessar meu backend
         });
         
         this.app.register(view, {

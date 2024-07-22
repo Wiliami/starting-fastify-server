@@ -1,7 +1,8 @@
 <div class="container mt-5">
     <h3>Criar conta</h3>
 
-    <%- include('./partials/error-success') %>
+    <%- include('./partials/successAlert') %>
+    <%- include('./partials/errorAlert') %>
 
     <form>
         <div class="mb-3">
@@ -16,7 +17,8 @@
             <label for="exampleInputPassword1" class="form-label">Confirmar senha</label>
             <input type="password" class="form-control" id="confirm">
         </div>
-        <button type="submit" id="submit" class="btn btn-primary">Criar</button>
+        <button type="submit" id="submit" class="btn btn-success">Criar</button>
+        <button type="submit" id="reset" class="btn btn-light">Resetar</button>
     </form>
 </div>
 
@@ -24,21 +26,49 @@
 <script>
 
     const buttonSubmit = document.getElementById('submit');
-    const messageSuccess = document.getElementById('message'); 
-    
-    function setError() {
-        messageSuccess.style.display = 'block';         
-        console.log(messageSuccess);
-    }
-    
-    setError();
+    const resetButton = document.getElementById('reset');
 
-    
+    const successAlert = document.getElementById('alert-success');
+    const errorAlert = document.getElementById('alert-error');
+
+
+    function setSuccess() {
+        successAlert.style.display = 'block';
+        successAlert.textContent = 'Cadastrado criado com sucesso.';
+    }
+
+    function setError() {
+        errorAlert.style.display = 'block';
+        errorAlert.textContent = 'Erro ao criar conta.';
+    }
+
+    function removeError() {
+        successAlert.style.display = 'none';
+        errorAlert.style.display = 'none';
+    }
+
+
+
 
     buttonSubmit.addEventListener('click', (e) => {
         e.preventDefault(); 
 
+        setSuccess();
     });
+
+    buttonSubmit.addEventListener('dblclick', (e) => {
+        e.preventDefault(); 
+
+        setError();
+    });
+
+    resetButton.addEventListener('click', (e) => {
+        e.preventDefault(); 
+
+        removeError();
+    });
+
+
     
 
 </script>
