@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon"
+    "dev": "node --watch --no-warnings src/http/server.js"
   },
   "dependencies": {
     "@fastify/cors": "^9.0.1",
